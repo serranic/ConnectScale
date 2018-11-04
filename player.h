@@ -39,7 +39,7 @@ class Player {
 		}
 
 		int decideTurn(char board[][WIDTH]) {
-		// This function contains the logic for deciding which column to play	
+            // This function contains the logic for deciding which column to play	
 			int winning = checkForWinning(board);
 			if (winning != -1)
 				return winning;
@@ -101,9 +101,8 @@ class Player {
 		}
 
 		bool checkForBadMove(char board[][WIDTH], int column) {
-		// Checks if a move is bad. Bad means a move that is that is
-		// not winning, and the next move will result in win for my 
-		// opponent
+		// Checks if a move is bad. Bad means a move that is not
+		// winning, and the next move will result in win for my opponent
 			if (columnFull(board, column))
 				return true;
 			char copy_board[HEIGHT][WIDTH];

@@ -119,6 +119,7 @@ void playTurn(char board[][WIDTH], int column, char piece) {
 }
 
 bool columnFull(char board[][WIDTH], int column) {
+    // Checks if a column is full
 	return board[0][column] != ' ';
 }
 
