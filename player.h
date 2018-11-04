@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+
 #include "connect_four_helper.h"
 
 
@@ -34,7 +35,6 @@ class Player {
 		int randomPlay() {
 			int column;
 			column = rand() % WIDTH;
-			std::cout << column << std::endl;
 			return column;
 		}
 
@@ -62,7 +62,7 @@ class Player {
 				return false;
 			}
 			int column = decideTurn(board);
-			if (column == -1)
+			if (column == -1) 
 				return false;
 			playTurn(board, column, PIECE);
 			if (findWinner(board, PIECE)) {
