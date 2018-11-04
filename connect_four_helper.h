@@ -1,5 +1,6 @@
 #include <iostream>
 
+// Can be adjusted to play different games, e.g. NinARow = 5
 const int WIDTH = 6;
 const int HEIGHT = 7;
 const int NinARow = 4;
@@ -7,7 +8,7 @@ const int NinARow = 4;
 char board[HEIGHT][WIDTH];
 
 void initializeBoard(char board[][WIDTH]) {
-	// Creates an empty board with all entires spaces
+	// Creates an empty board with all spaces
 	for (int h = 0; h < HEIGHT; ++h) {
 		for (int w = 0; w < WIDTH; ++w) {
 			board[h][w] = ' ';
