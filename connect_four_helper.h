@@ -1,9 +1,10 @@
 #include <iostream>
+#include <string>
 
 // Can be adjusted to play different games, e.g. NinARow = 5
-const int WIDTH = 6;
-const int HEIGHT = 7;
-const int NinARow = 4;
+const int WIDTH = 8;
+const int HEIGHT = 9;
+const int NinARow = 5;
 
 char board[HEIGHT][WIDTH];
 
@@ -17,7 +18,8 @@ void initializeBoard(char board[][WIDTH]) {
 }
 
 void printTitle() {
-	std::cout << "\n" << std::string(int(WIDTH * 1.5 - 4.5), ' ') << "Connect " << NinARow << std::endl;
+	std::string title = "Connect " + std::to_string(NinARow);
+	std::cout << "\n" << std::string(std::max(0, int(WIDTH * 1.5 - title.length() / 2.0)), ' ') << title << std::endl;
 }
 
 void printBoard(char board[][WIDTH]) {
@@ -108,16 +110,16 @@ bool findWinner(char board[][WIDTH], char piece) {
 
 void playTurn(char board[][WIDTH], int column, char piece) {
 	// Inserts designated piece in desired column
-	while (column < 0 or column > WIDTH - 1) {
-		std::cout << "Please enter a valid column: ";
-		std::cin >> column;
-	}
 	for (int h = HEIGHT; h >= 0; h--) {
 		if (board[h][column] == ' ') {
 			board[h][column] = piece;
 			return;
 		}
 	}
+}
+
+bool columnFull(char board[][WIDTH], int column) {
+	return board[0][column] != ' ';
 }
 
 bool isDraw(char board[][WIDTH]) {
