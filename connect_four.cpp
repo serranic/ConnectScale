@@ -4,19 +4,9 @@
 #include "player.h"
 
 // SCALABLE FOUR
-bool playGame(char board[][WIDTH], char piece) {
-	printBoard(board);
-	int column;
-	std::cout << "Please enter a column for Player " << piece << " (Enter -1 to Quit): ";
-	std::cin >> column;
-	if (column == -1)
+bool playGame(char board[][WIDTH], Player p1, Player p2) {
+	if (not (p1.playATurn(board) and p2.playATurn(board)))
 		return false;
-	playTurn(board, column, piece);
-	if (findWinner(board, piece)) {
-		printBoard(board);
-		std::cout << "Player " << piece << " wins!" << std::endl;
-		return false;
-	}
 	if (isDraw(board)) {
 		printBoard(board);
 		std::cout << "The game is a draw." << std::endl;
@@ -28,9 +18,6 @@ bool playGame(char board[][WIDTH], char piece) {
 int main() {
 	initializeBoard(board);
 	Player player_1('X');
-	while (true) {
-	//	player_1.checkForLosing(board);
-		if (not (playGame(board, 'X') and playGame(board, 'O')))
-			return 0;
-	}
+	Player player_2('O');
+	while (playGame(board, player_1, player_2)) {}
 }

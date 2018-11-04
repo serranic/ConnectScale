@@ -1,8 +1,8 @@
 #include <iostream>
 
-const int WIDTH = 8;
-const int HEIGHT = 9;
-const int NinARow = 5;
+const int WIDTH = 6;
+const int HEIGHT = 7;
+const int NinARow = 4;
 
 char board[HEIGHT][WIDTH];
 
