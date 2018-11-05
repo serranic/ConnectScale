@@ -47,7 +47,7 @@ int main() {
     srand(time(NULL));
     initializeBoard(board);
     Player player_1('X');
-	Player player_2('O');
+    Player player_2('O');
 
     classicGame(player_1, player_2);
     // threadedGame(player_1, player_2);
