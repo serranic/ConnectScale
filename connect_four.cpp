@@ -45,7 +45,7 @@ void threadedGame(Player p1, Player p2) {
 
 int main() {
     srand(time(NULL));
-	initializeBoard(board);
+    initializeBoard(board);
     Player player_1('X');
 	Player player_2('O');
 
