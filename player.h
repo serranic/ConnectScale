@@ -38,6 +38,10 @@ class Player {
 			return column;
 		}
 
+        void algorthimPlay() {
+            std::cout << "Connect Four is a solved game. Implement Algo here" << std::endl;
+        }
+
 		int decideTurn(char board[][WIDTH]) {
             // This function contains the logic for deciding which column to play	
 			int winning = checkForWinning(board);
@@ -46,8 +50,8 @@ class Player {
 			int losing = checkForLosing(board);
 			if (losing != -1)
 				return losing;
-			// int column = humanPlay(board);
-			int column = randomPlay();
+            // int column = humanPlay(board);
+            int column = randomPlay();
 			for (int count = 0; count < WIDTH and checkForBadMove(board,column) and column != -1; ++count) {
 				column = (column + 1) % WIDTH;
 			}

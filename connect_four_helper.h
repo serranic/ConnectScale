@@ -6,7 +6,7 @@ const int WIDTH = 8;
 const int HEIGHT = 9;
 const int NinARow = 5;
 
-char board[HEIGHT][WIDTH];
+char board[HEIGHT][WIDTH]; // TODO: create a class for this, bad practice having as global
 
 void initializeBoard(char board[][WIDTH]) {
 	// Creates an empty board with all spaces
@@ -25,7 +25,7 @@ void printTitle() {
 void printBoard(char board[][WIDTH]) {
 	// Prints board with indices for columns
 	printTitle();
-	for (int h = 0; h < HEIGHT; ++h) {
+	for (int h = HEIGHT - 1; h >= 0; h--) {
 		std::cout << "|";
 		for (int w = 0; w < WIDTH; ++w) {
 			std::cout << " " << board[h][w] << " ";
@@ -110,7 +110,7 @@ bool findWinner(char board[][WIDTH], char piece) {
 
 void playTurn(char board[][WIDTH], int column, char piece) {
 	// Inserts designated piece in desired column
-	for (int h = HEIGHT; h >= 0; h--) {
+	for (int h = 0; h < HEIGHT; h++) {
 		if (board[h][column] == ' ') {
 			board[h][column] = piece;
 			return;
@@ -120,13 +120,13 @@ void playTurn(char board[][WIDTH], int column, char piece) {
 
 bool columnFull(char board[][WIDTH], int column) {
     // Checks if a column is full
-	return board[0][column] != ' ';
+	return board[HEIGHT - 1][column] != ' ';
 }
 
 bool isDraw(char board[][WIDTH]) {
 	// Checks if there are any available moves
 	for (int w = 0; w < WIDTH; ++w) {
-		if (board[0][w] == ' ')
+		if (board[HEIGHT - 1][w] == ' ')
 			return false;
 	}
 	return true;
